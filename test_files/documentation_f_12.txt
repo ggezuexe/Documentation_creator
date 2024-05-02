@@ -1,0 +1,6 @@
+The Python file `f_12.py` contains a simple script that prompts the user to input two positive integers. The script then checks the provided integers and:
+
+- If the first number (`szam_1`) is smaller than the second number (`szam_2`), it prints all the integers that lie between these two numbers.
+- If the first number (`szam_1`) is not smaller than the second number (`szam_2`), it prints a message indicating an incorrect input ("Rosszul adtad meg").
+
+This functionality can be advantageous for scenarios where a user needs to quickly generate a sequence of numbers between two endpoints or verify the order of their input values.

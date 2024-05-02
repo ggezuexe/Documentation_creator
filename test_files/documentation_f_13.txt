@@ -1,0 +1,14 @@
+The Python script named `f_13.py` is designed to take two positive integers as input from the user and print all even numbers that lie between these two numbers. Here’s a breakdown of its functionality:
+
+1. **Input Collection**: The script prompts the user to input two positive integers, referred to as `szam_1` and `szam_2`.
+
+2. **Conditional Logic**:
+   - If `szam_1` is less than `szam_2`, the script iterates through numbers from `szam_1 + 1` to `szam_2 - 1`.
+   - Conversely, if `szam_1` is greater than `szam_2`, it iterates from `szam_2 + 1` to `szam_1 - 1`.
+   - For each number in the specified range, the script checks if it is even. If it is, the number is printed.
+   - If `szam_1` equals `szam_2`, the script prints a message indicating that both numbers are equal, and no range checks or printing of even numbers occurs.
+
+3. **Output**:
+   - The output is either a series of even numbers printed on separate lines (depending on the range between the two input values) or a message stating that the two numbers are equal.
+
+This script is useful for scenarios where identifying even numbers between two points is needed, such as in number theory or coding exercises involving loops and conditionals.

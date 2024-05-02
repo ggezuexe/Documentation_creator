@@ -1,0 +1,11 @@
+The file `f_19.py` is a Python script designed to compare two strings entered by the user and identify common characters between them. The script performs the following steps:
+
+1. It prompts the user twice to input two separate strings (`szó_1` and `szó_2`).
+2. It initializes an empty list `azonosak` to store characters that appear in both strings.
+3. The script uses two nested loops to iterate over each character in `szó_1` and each character in `szó_2`. It compares each character from `szó_1` with each character from `szó_2`.
+4. If a matching character is found and it is not already in the list `azonosak`, the script adds it to the list.
+5. After comparing all characters, the script checks if the list `azonosak` has any elements:
+   - If the list is not empty, it prints the characters found in both words.
+   - If the list is empty, it outputs a message indicating there are no common characters between the two strings.
+
+Overall, this script helps users to identify overlapping characters between two input strings, providing a simple textual analysis tool.

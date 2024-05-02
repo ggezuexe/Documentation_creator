@@ -1,0 +1,31 @@
+### File Description: `f_14.py`
+
+The `f_14.py` Python script contains a function designed to create a visual representation of a rectangle using asterisks (`*`). The dimensions of the rectangle are defined by user inputs for its width and height. Below is a detailed breakdown of the file contents and functionality:
+
+#### Function: `teglalap(n, m)`
+- **Purpose**: This function generates a rectangle using asterisks (`*`). It prints a character pattern based on the supplied dimensions (`n` for width, `m` for height).
+- **Parameters**:
+  - `n` (int): Represents the width of the rectangle (number of asterisks per row).
+  - `m` (int): Represents the height of the rectangle (number of rows).
+- **Behavior**: The function uses two nested loops. The outer loop iterates `m` times, each time printing a new line after the inner loop completes. The inner loop iterates `n` times, printing an asterisk without advancing to the next line (i.e., end=""), resulting in a row of asterisks.
+- **Returns**: Nothing (`None`) - the function's primary purpose is to print to the standard output.
+
+#### Main Execution Block
+- **Input Requests**:
+  - The script asks the user to input two integers through the console. These integers represent the dimensions (`n` and `m`) of the rectangle to be drawn.
+  - The first input corresponds to `n` (width of the rectangle in asterisks).
+  - The second input corresponds to `m` (height of the rectangle in rows).
+- **Function Call**: The `teglalap` function is invoked with the user-provided values for `n` and `m`.
+
+#### Usage:
+- When executed, the script prompts the user to enter dimensions for a rectangle. Upon receiving valid inputs, it displays the rectangle pattern on the screen.
+
+#### Example:
+If the user inputs `4` for width and `3` for height, the output will be:
+```
+****
+****
+****
+```
+
+This simple, straightforward script is effective for creating visual patterns and can serve as a basic example of function definition and usage, nested loops, and handling user input in Python.
