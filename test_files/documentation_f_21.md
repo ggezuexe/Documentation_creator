@@ -1,0 +1,5 @@
+The Python script named `f_21.py` contains a function `csillag` which takes a single parameter `szó_1`. The purpose of this function is to print an asterisk (*) for each character present in the input string `szó_1`. Specifically, the function uses a `for` loop to iterate through the length of the input string, printing one asterisk per iteration but not alongside the characters from the input.
+
+The script also includes a user interaction part where it prompts the user to input a text. This text is captured and passed to the `csillag` function when called.
+
+In sum, upon executing this script, the user will be asked to input some text, and in response, the script will output a number of asterisks equal to the number of characters in the provided text, with each asterisk printed on a new line.

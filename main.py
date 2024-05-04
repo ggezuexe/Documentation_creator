@@ -77,7 +77,7 @@ def create_documentation(file):
     )
 
     # Construct the path for the output documentation file
-    path = file.directory_path + "/" + "documentation_" + remove_file_extension(file.file_name) + ".txt"
+    path = file.directory_path + "/" + "documentation_" + remove_file_extension(file.file_name) + ".md"
 
     # Open the file in write mode
     documentation = open(path, "w")
