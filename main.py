@@ -90,6 +90,65 @@ def create_documentation(file):
     # Close the file
     documentation.close()
 
+def create_summary_documentation(files):
+    # Define a list of messages to be used as input for the OpenAI chat completion model
+    MSGS = [
+        # Initial message from the system, describing the user's role
+        {"role": "system", "content": "You are a software engineer, your primary role is to assist users in creating a big summary documentation for their code. "},
+    ]
+
+    # Loop through the list of files
+    for file in files:
+        # Add a message to the MSGS list with the file name
+        MSGS.append({"role": "user", "content": "The name of the file: " + file.file_name})
+        
+        # Add a message to the MSGS list with the file content
+        MSGS.append({"role": "user", "content": "The content of the file: " + file.content})
+        
+    # Add a message to the MSGS list prompting the user for a file description
+    MSGS.append({"role": "system", "content": "Make a large summary document of the files below."})
+
+    # Create a chat completion response using the OpenAI API
+    response = openai.ChatCompletion.create(
+        # Specify the model to use (in this case, gpt-4-turbo)
+        model="gpt-4-turbo",
+        # Pass in the list of messages as input
+        messages=MSGS,
+        # Set the maximum number of tokens in the response
+        max_tokens=4095,
+        # Request a single response (n=1)
+        n=1,
+    )
+
+    # Construct the path for the output documentation file
+    path = file.directory_path + "/" +"summary_documentation.md"
+
+    # Open the file in write mode
+    documentation = open(path, "w")
+
+    # Write the response from the OpenAI model to the file
+    documentation.write(response.choices[0].message["content"])
+
+    # Close the file
+    documentation.close()
+
+def menu_1(files):
+    # Initialize an empty list to store futures
+    futures = []
+
+    # Create a ThreadPoolExecutor with max_workers equal to the number of files
+    # This allows us to process multiple files concurrently
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(files)) as executor:
+        # Submit a task to create documentation for each file and store the future in the list
+        for file in files:
+            futures.append(executor.submit(create_documentation, file))
+            # Introduce a delay of 2 seconds between submitting tasks to avoid overwhelming the executor (because of the rate limit in the Openai API)
+            time.sleep(2)
+
+        for future in futures:
+            # Wait for the task to complete
+            future.result()
+
 def main():
     # Prompt the user to enter an OpenAI API token
     token = input("Give me a token: ")
@@ -103,21 +162,24 @@ def main():
     # Read the files in the specified directory using a function called read_files_in_directory
     files = read_files_in_directory(directory_path)
 
-    # Initialize an empty list to store futures
-    futures = []
+    # Displaying a menu and executing corresponding actions based on user input
+    menutext = ""
+    while menutext != "3":
+        print('Choose a mode:')
+        print("1. Create a document for every file")
+        print("2. Create a big summary document")
+        print("3. Exit")
+        menutext = input("")
+        if menutext == "1":
+            menu_1(files)  # Execute function to create a document for each file
+        elif menutext == "2":
+            create_summary_documentation(files)  # Execute function to create a summary document
+        elif menutext == "3":
+            print("Bye! :)")  # Inform user of exit
+        else:
+            print("Wrong number")  # Inform user of incorrect input
+        print()  # Add a newline for readability after each menu iteration
 
-    # Create a ThreadPoolExecutor with max_workers equal to the number of files
-    # This allows us to process multiple files concurrently
-    with concurrent.futures.ThreadPoolExecutor(max_workers=len(files)) as executor:
-        # Submit a task to create documentation for each file and store the future in the list
-        for file in files:
-            futures.append(executor.submit(create_documentation, file))
-            # Introduce a delay of 1.5 seconds between submitting tasks to avoid overwhelming the executor (because of the rate limit in the Openai API)
-            time.sleep(1.5)
-
-        for future in futures:
-            # Wait for the task to complete
-            future.result()
 
 if __name__ == "__main__":
-    main()
+    main()  # Execute the main function when the script is run directly

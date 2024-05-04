@@ -1,29 +1,16 @@
-The file `f_14.py` contains a Python script that defines and utilizes a function named `teglalap` to print a rectangle made of asterisks (*) based on user-provided dimensions. Below is a breakdown of the functionality encapsulated within the file:
+The file `f_14.py` contains a Python script that defines a function `teglalap(n, m)` which prints a rectangle made of asterisk (`*`) characters. The dimensions of the rectangle are determined by the parameters `n` (width) and `m` (height) passed to the function. Following the function definition, the script prompts the user to input two integers, `n` and `m`, which represent the width and height of the rectangle, respectively. After receiving the inputs, the script then calls the `teglalap` function with the user-provided dimensions to print the rectangle on the screen.
 
-### Function Description:
-- **Function Name:** `teglalap`
-- **Parameters:**
-  - `n`: An integer denoting the width of the rectangle (number of asterisks per line).
-  - `m`: An integer denoting the height of the rectangle (number of lines).
-- **Behavior:** The function iterates `m` times, each time printing a line of `n` asterisks, resulting in an `m`-high rectangle that is `n` asterisks wide.
-- **Return Value:** None.
+Here's a step-by-step overview of the script's execution:
 
-### Script Execution Flow:
-1. **Input Reception:**
-   - The script prompts the user twice to input integers. The first input is stored in variable `n` and represents the width of the rectangle. The second input is stored in variable `m` and represents the height of the rectangle.
-  
-2. **Function Call:**
-   - The `teglalap` function is called with `n` and `m` as arguments.
+1. The function `teglalap(n, m)` is defined:
+   - It takes two parameters, `n` (width) and `m` (height).
+   - It uses two nested loops: the outer loop iterates `m` times (once for each row), and the inner loop iterates `n` times (once for each column in a row), printing an asterisk without moving to a new line (`end=""` keeps the cursor on the same line).
+   - A call to `print("")` after the inner loop completes moves the cursor to the next line to start the next row of asterisks.
+   - The function returns nothing (`return`).
 
-### Use Case:
-This script can typically be used in scenarios where a simple visual representation is needed, for instance in educational settings to demonstrate loops and function calls, or as a simple console-based visual output.
+2. The script gathers user input:
+   - It prompts the user twice using `input()`, asking them to enter integer values for `n` and `m`.
 
-### Example:
-If a user inputs 5 for `n` and 3 for `m`, the output will be:
-```
-*****
-*****
-*****
-```
+3. With the values collected from the user (`n` and `m`), the `teglalap` function is called to print a rectangle based on the user's inputs.
 
-This script depends on standard input from the user, and might be extended or modified to handle different shapes, additional user interactions, or error handling to deal with non-integer inputs.
+This script is useful for visualizing rectangle dimensions dynamically, based on user input. It can be modified or expanded in various ways depending on the user's needs, such as changing the character used for drawing or adding boundary conditions for input values.

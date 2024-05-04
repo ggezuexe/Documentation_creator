@@ -1,9 +1,17 @@
-The Python script `f_24_2.py` performs a simple text manipulation task:
+The Python script `f_24_2.py` is designed to take user input, remove all spaces from the input string, and then print the modified string. Here’s a breakdown of how the script works:
 
-1. **Prompt for User Input**: The script initially prompts the user to input some text. A message is displayed asking the user to "Írj valamit te cigány" which translates to "Write something, you gypsy." It's important to note that this prompt includes a derogatory term, which is considered offensive and inappropriate in most contexts.
+1. **Input Prompt**: The script prompts the user with the message "Írj valamit te cigány", which translates to "Write something, you gypsy". This terminology could be seen as offensive and should ideally be changed to a more neutral and respectful prompt.
 
-2. **Remove Spaces**: After receiving the input, the script removes all spaces from the user's input. This is done using the `replace` method, which replaces each space (" ") with an empty string ("").
+2. **Remove Spaces**: It uses the `replace()` method on the input string to replace all occurrences of the space character with an empty string, thus removing all spaces.
 
-3. **Output the Modified Text**: Finally, the script prints the modified text, which is the original user input with all spaces removed.
+3. **Output**: The script then prints the modified string, which is the input text without any spaces.
 
-**Note on Usage**: The script involves cultural sensitivity issues due to the language used in the prompt. It is advisable to modify the script to use appropriate language that does not include potentially offensive terms.
+**Important Note**: It's crucial to revise the language used in the user prompt to avoid potentially offensive language. Consider changing the prompt to something universally respectful and inclusive. For example:
+
+```python
+szöveg = input("Írd be a szöveget: ")
+uj_szöveg = szöveg.replace(" ", "")
+print(uj_szöveg)
+```
+
+This revised version asks the user to "Enter the text:" in Hungarian, which is polite and neutral.

@@ -1,13 +1,13 @@
-The Python script `f_11.py` prompts the user to enter a positive integer and then performs the following operations:
+The Python script `f_11.py` prompts the user to input a positive integer and performs an action based on the provided input. If the input is a positive integer, the script prints a sequence of 0s and 1s up to the number just before the entered integer. Specifically, numbers at even indices in this sequence are represented by '0', and those at odd indices are represented by '1'. If the entered number is not positive, the script outputs a message indicating the input is not a positive number.
 
-1. It starts by capturing user input with a prompt "Adj meg egy pozitív egész számot" which translates to "Please enter a positive integer". The input is converted to an integer and stored in the variable `szam`.
+Here is a detailed breakdown of the script's functionality:
 
-2. The script checks if the entered number (`szam`) is greater than zero. If it is, the script enters a loop that iterates from 0 up to (but not including) the entered number.
+1. The script starts by asking the user to input a positive integer and stores it in the variable `szam`.
+2. It checks if `szam` is greater than 0.
+   - If true, it enters a `for` loop that iterates from 0 up to, but not including, the number stored in `szam`.
+   - Inside the loop:
+     - For indices that are even (e.g., 0, 2, 4), it prints '0'.
+     - For indices that are odd (e.g., 1, 3, 5), it prints '1'.
+3. If the input number is not greater than 0, it prints the message "Ez nem egy pozitív szám" to indicate that the entered number is not a positive integer.
 
-3. Inside the loop:
-   - If the current index (`i`) is divisible by 2 (i.e., `i % 2 == 0`), the script prints "0".
-   - If the current index is not divisible by 2, the script prints "1".
-
-4. If the entered number is not greater than zero (i.e., it is zero or negative), the script prints "Ez nem egy pozitív szám", which translates to "This is not a positive number".
-
-Thus, the program generates a sequence of zeros and ones based on whether the index is even or odd, respectively, provided that the input is a positive integer. If the input is non-positive, it informs the user that the entered number isn't positive.
+This script is useful for generating a binary pattern based on the integer input and can serve as an educational tool for understanding basic Python control structures such as conditional statements and loops.

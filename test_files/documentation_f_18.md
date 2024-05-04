@@ -1,27 +1,18 @@
-The Python script `f_18.py` defines a function named `összeg`, which is used to calculate the sum of all integers between two numbers provided by the user. The script functions as follows:
+The Python file `f_18.py` contains a script that calculates and prints the sum of all integers between two numbers provided by the user. Here's a step-by-step breakdown of the file's contents:
 
 1. **Function Definition (`összeg`)**:
-   - It takes two parameters, `szam1` and `szam2`, which represent the two numbers between which the sum is to be calculated.
-   - The function initializes a variable `szam_össz` to zero, which will store the cumulative sum of the numbers in the specified range.
-   - Using conditional statements, the function checks which number is greater and then iterates over a range from the smaller to the larger number (inclusive) using a `for` loop to calculate the sum of those numbers.
-   - It then returns the calculated sum (`szam_össz`).
+   - The function `összeg` is defined with two parameters, `szam1` and `szam2`.
+   - It initializes a variable `szam_össz` to zero, which will store the sum of the numbers.
+   - It checks if `szam1` is less than `szam2`. If true, it sums up all numbers between `szam1` and `szam2` (inclusive) using a `for` loop.
+   - If `szam1` is greater than `szam2`, it sums up all numbers between `szam2` and `szam1` (inclusive). **This specific part of the script contains an error:** it uses a variable `szam_2` which is not defined; it should be `szam2` instead.
+   - The function returns the calculated sum.
 
-2. **User Input**:
-   - The script prompts the user twice to input two integers through the built-in `input` function.
+2. **User Input Handling**:
+   - The script prompts the user to enter two integers using the `input` function and converts them to integers.
+   - These values are stored in `szam_1` and `szam_2`.
 
-3. **Calculation and Output**:
-   - These input values are passed to the `összeg` function to get the sum of all numbers in the range between the two inputs.
-   - Finally, it prints out the sum using a formatted string.
+3. **Function Call and Output**:
+   - The `összeg` function is called with `szam_1` and `szam_2` as arguments, and the result is stored in `szamok_összege`.
+   - Finally, the sum is printed out with a message using the `print` function.
 
-### Notable Issue:
-There is a bug in the script where, in the `elif` branch (where `szam1` is greater than `szam2`), it refers to `szam_2` which is undefined in the function scope. It should refer to `szam2`.
-
-```python
-elif szam1 > szam2:
-    for i in range(szam2, szam1 + 1):
-        szam_össz = szam_össz + i
-```
-
-This correction is necessary to ensure the function operates correctly when `szam1` is greater than `szam2`.
-
-Overall, this script effectively allows a user to compute the sum of integers between two numbers, handling both cases where the first number is less than or greater than the second number, provided the mentioned bug is fixed.
+Overall, this script allows users to calculate and display the sum of numbers in a specified range, but it contains a minor bug which needs correction in the variable name used in one of the conditional blocks.

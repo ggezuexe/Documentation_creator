@@ -1,12 +1,12 @@
-The Python script `f_13.py` prompts the user to input two positive integers and then performs the following operations based on the comparison of these numbers:
+The Python file `f_13.py` is a script that prompts the user to enter two positive integers. After inputting these numbers, the script will perform the following actions based on the relationship between the two integers:
 
-1. **User Input**: The script begins by requesting the user to enter two positive integers, referred to as `szam_1` and `szam_2`.
+1. **If the first number is less than the second**: The script prints all even numbers that exist between the first and second number (exclusive of both).
+2. **If the first number is greater than the second**: The script similarly prints all even numbers that exist between the second and the first number (exclusive of both).
+3. **If both numbers are equal**: The script prints a message stating that the two numbers are equal.
 
-2. **Comparison and Loop Execution**:
-   - If `szam_1` is less than `szam_2`, the script iterates through the range of numbers between `szam_1` and `szam_2` (exclusive of `szam_2` and inclusive of one more than `szam_1`). During the iteration, it checks each number to determine if it is even. If a number is even, it is printed to the output.
-   - Conversely, if `szam_1` is greater than `szam_2`, the script iterates through the range between `szam_2` and `szam_1` (exclusive of `szam_1` and inclusive of one more than `szam_2`). It checks each number in this range in the same manner, printing out the even numbers.
+Key behaviors of the script:
+- It ensures that the numbers for comparison and the printing of even numbers are always non-inclusive, meaning it starts checking from the number just greater than the smaller number and stops before the larger number.
+- The script checks for even numbers using the modulus operator (`%`), which determines whether the remainder is zero when a number is divided by 2, defining it as even.
+- Exception handling for non-integer inputs isn't explicitly stated, so the script expects users to input valid integers to work correctly.
 
-3. **Equal Inputs**:
-   - If `szam_1` equals `szam_2`, the script simply prints out the message "A két szám egyenlő," which means "The two numbers are equal" in Hungarian.
-
-The script provides a simple way to display all even numbers between two entered values, facilitating the understanding of loops, conditions, and basic user input handling in Python.
+This script can be useful for basic numeric comparisons and understanding the use of conditionals and loops in Python.

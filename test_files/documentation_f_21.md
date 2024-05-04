@@ -1,29 +1,5 @@
-### File Description: f_21.py
+The Python script `f_21.py` defines a function named `csillag` that takes one argument, `szó_1`. The purpose of this function is to print an asterisk (`*`) on the screen for each character present in the argument `szó_1`. It does this by running a loop that iterates as many times as there are characters in `szó_1`, printing an asterisk during each iteration.
 
-`f_21.py` is a Python script that defines and utilizes a function named `csillag` to print asterisks based on the length of a given input string.
+After defining the function, the script prompts the user to input a text string by displaying the message "Adj meg egy szöveget" (Hungarian for "Enter a text"). This input is then stored in the variable `szó`. The `szó` variable is subsequently passed as an argument to the `csillag` function, triggering the printing of asterisks corresponding to the length of the input text.
 
-#### Function: `csillag`
-- **Purpose**: Prints an asterisk "*" for each character in the input string.
-- **Parameter**:
-  - `szó_1`: A string for which the number of asterisks equal to its length will be printed.
-- **Returns**: None. The function primarily has side effects (printing).
-
-#### Usage:
-- The script prompts the user to input a string with the message "Adj meg egy szöveget", which translates to "Provide a text."
-- It then calls the `csillag` function using the user's input as an argument.
-
-#### Example:
-If the user inputs "hello", the output will be:
-```
-*
-*
-*
-*
-*
-```
-Here, one asterisk is printed for each of the 5 characters in "hello".
-This script could be used in scenarios where a simple visualization of string length is needed, such as in beginner programming classes to demonstrate loops and function usage.
-
-#### Additional Suggestions (if applicable):
-- Consider adding or modifying the function to provide different or more complex functionalities, such as printing other symbols or including the count of characters printed.
-- Enhance user interaction by providing more descriptive prompts or output messages.
+Overall, the function does not return any value; its primary side effect is to produce a visual output to the screen.
