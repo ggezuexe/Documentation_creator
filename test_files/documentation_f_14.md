@@ -1,10 +1,29 @@
-The file `f_14.py` contains a Python script that defines and utilizes a function to draw a rectangle using asterisks (*). The function named `teglalap` takes two integer parameters, `n` and `m`, which represent the dimensions (width and height, respectively) of the rectangle to be drawn. In the function, nested loops are used to print `n` asterisks on each line for a total of `m` lines, thereby constructing a rectangle shape on the console.
+The file `f_14.py` contains a Python script that defines and utilizes a function named `teglalap` to print a rectangle made of asterisks (*) based on user-provided dimensions. Below is a breakdown of the functionality encapsulated within the file:
 
-Below the function definition, the script prompts the user to input two integers. These integers are then passed to the `teglalap` function to draw a rectangle with the specified width (`n`) and height (`m`).
+### Function Description:
+- **Function Name:** `teglalap`
+- **Parameters:**
+  - `n`: An integer denoting the width of the rectangle (number of asterisks per line).
+  - `m`: An integer denoting the height of the rectangle (number of lines).
+- **Behavior:** The function iterates `m` times, each time printing a line of `n` asterisks, resulting in an `m`-high rectangle that is `n` asterisks wide.
+- **Return Value:** None.
 
-Here's a breakdown of the script activities:
-1. Definition of `teglalap`, which prints a rectangle of asterisks based on the provided dimensions.
-2. Script prompts the user for the width and height of the rectangle.
-3. The rectangle is printed to the console using the user-provided dimensions.
+### Script Execution Flow:
+1. **Input Reception:**
+   - The script prompts the user twice to input integers. The first input is stored in variable `n` and represents the width of the rectangle. The second input is stored in variable `m` and represents the height of the rectangle.
+  
+2. **Function Call:**
+   - The `teglalap` function is called with `n` and `m` as arguments.
 
-The purpose of the script is straightforward: to allow a user to dynamically create rectangles of asterisks with dimensions specified through user input.
+### Use Case:
+This script can typically be used in scenarios where a simple visual representation is needed, for instance in educational settings to demonstrate loops and function calls, or as a simple console-based visual output.
+
+### Example:
+If a user inputs 5 for `n` and 3 for `m`, the output will be:
+```
+*****
+*****
+*****
+```
+
+This script depends on standard input from the user, and might be extended or modified to handle different shapes, additional user interactions, or error handling to deal with non-integer inputs.

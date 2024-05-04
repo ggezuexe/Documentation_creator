@@ -1,13 +1,14 @@
-The Python script `f_10.py` is designed to calculate the sum of natural numbers up to a user-inputted positive integer. Here’s a breakdown of how the script operates:
+The Python script `f_10.py` is designed to compute and display the sum of all positive integers up to a user-specified number. Here’s a breakdown of the operations performed in the script:
 
-1. **Input Request**: The program prompts the user to input a positive integer. This value is stored in the variable `szam`.
+1. The script prompts the user to enter a positive integer with the message "Adj meg egy pozitív egész számot". The input from the user is then converted to an integer and stored in the variable `szam`.
 
-2. **Input Validation**: The script checks if the entered integer is greater than 0. If it's not, the script outputs "Ez nem egy pozitív szám" (which translates to "This is not a positive number") and terminates the execution.
+2. It checks whether the entered number (`szam`) is greater than 0. If it is not, the script prints "Ez nem egy pozitív szám", indicating that the entered number is not a positive number.
 
-3. **Sum Calculation**:
-   - If the entered integer is positive, the program initializes two variables, `x` and `összeg` (which means "sum"), to manage the iteration and accumulation of the sum respectively.
-   - A `for` loop iterates from 0 to one less than the entered number (`szam - 1`). In each iteration, it updates the value of `x` to the current loop index plus one, and accumulates the sum of these values in `összeg`.
+3. If the number is positive, the script proceeds with the following operations:
+   - Initializes two variables, `x` to 0 and `összeg` (sum) to 0.
+   - Uses a `for` loop that iterates from 0 to `szam - 1`. In each iteration:
+     - The loop index `i` is incremented by 1 and assigned to `x`.
+     - The value of `x` is then added to `összeg`.
+   - After completing the loop, it prints the cumulative sum of numbers from 1 to `szam - 1` in the format "A számok összeg: X", where X is the calculated sum.
 
-4. **Output**: After the loop completes, the program prints "A számok összeg:" followed by the calculated sum, providing the summed total of all integers from 1 up to and including the number just below the user's input.
-
-This script effectively provides a simple demonstration of user input handling, condition checking, and loop-based arithmetic operations in Python.
+This script is a simple computational tool tailored to work with positive integers and efficiently calculates the sum of all integers leading up to a chosen number in a user-friendly manner.

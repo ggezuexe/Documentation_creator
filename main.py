@@ -1,5 +1,7 @@
 import openai 
 import os
+import concurrent.futures
+import time
 
 class File_to_comment:
   # This class represents a file and its content
@@ -88,19 +90,34 @@ def create_documentation(file):
     # Close the file
     documentation.close()
 
-# Prompt the user to enter an OpenAI API token
-token = input("Give me a token: ")
+def main():
+    # Prompt the user to enter an OpenAI API token
+    token = input("Give me a token: ")
 
-# Set the OpenAI API key using the provided token
-openai.api_key = token
+    # Set the OpenAI API key using the provided token
+    openai.api_key = token
 
-# Prompt the user to enter a directory path
-directory_path = input("Give me a directory: ")
+    # Prompt the user to enter a directory path
+    directory_path = input("Give me a directory: ")
 
-# Read the files in the specified directory using a function called read_files_in_directory
-files = read_files_in_directory(directory_path)
+    # Read the files in the specified directory using a function called read_files_in_directory
+    files = read_files_in_directory(directory_path)
 
-# Iterate over the list of files
-for file in files:
-    # Call the create_documentation function for each file, passing the file object as an argument
-    create_documentation(file)
+    # Initialize an empty list to store futures
+    futures = []
+
+    # Create a ThreadPoolExecutor with max_workers equal to the number of files
+    # This allows us to process multiple files concurrently
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(files)) as executor:
+        # Submit a task to create documentation for each file and store the future in the list
+        for file in files:
+            futures.append(executor.submit(create_documentation, file))
+            # Introduce a delay of 1.5 seconds between submitting tasks to avoid overwhelming the executor (because of the rate limit in the Openai API)
+            time.sleep(1.5)
+
+        for future in futures:
+            # Wait for the task to complete
+            future.result()
+
+if __name__ == "__main__":
+    main()
