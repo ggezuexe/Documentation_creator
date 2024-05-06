@@ -149,6 +149,62 @@ def menu_1(files):
             # Wait for the task to complete
             future.result()
 
+def comment_codes(file):
+    MSGS = [
+        # Initial message from the system, describing the user's role
+        {"role": "system", "content": "You are a software engineer, your primary role is to assist users in creating comments for their code."},
+        # Message from the user, providing the file name
+        {"role": "user", "content": "The name of the file: " + file.file_name},
+        # Message from the user, providing the file content
+        {"role": "user", "content": "The content of the file: " + file.content},
+        # Follow-up message from the system, asking for a commented version of the file
+        {"role": "system", "content": "Please provide a commented version of the file do NOT return anything else."},
+        {"role": "system", "content": "Do not add something like this to it: ```python ```"},
+    ]
+
+    # Create a chat completion response using the OpenAI API
+    response = openai.ChatCompletion.create(
+        # Specify the model to use (in this case, gpt-4-turbo)
+        model="gpt-4-turbo",
+        # Pass in the list of messages as input
+        messages=MSGS,
+        # Set the maximum number of tokens in the response
+        max_tokens=4095,
+        # Request a single response (n=1)
+        n=1,
+    )
+
+    #Remove the original file
+    file_path = file.directory_path + "/" + file.file_name
+    os.remove(file_path)
+
+    # Construct the path for the output documentation file
+    path = file.directory_path + "/" + file.file_name
+
+    # Open the file in write mode
+    documentation = open(path, "w")
+
+    # Write the response from the OpenAI model to the file
+    documentation.write(response.choices[0].message["content"])
+
+    # Close the file
+    documentation.close()
+
+def menu_3(files):
+    # Initialize an empty list to store futures
+    futures = []
+
+    # Create a ThreadPoolExecutor with max_workers equal to the number of files
+    # This allows us to process multiple files concurrently
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(files)) as executor:
+        for file in files:
+            futures.append(executor.submit(comment_codes, file))
+            # Introduce a delay of 3 seconds between submitting tasks to avoid overwhelming the executor (because of the rate limit in the Openai API)
+            time.sleep(3)
+
+        for future in futures:
+            future.result()
+
 def main():
     # Prompt the user to enter an OpenAI API token
     token = input("Give me a token: ")
@@ -164,17 +220,20 @@ def main():
 
     # Displaying a menu and executing corresponding actions based on user input
     menutext = ""
-    while menutext != "3":
+    while menutext != "4":
         print('Choose a mode:')
         print("1. Create a document for every file")
         print("2. Create a big summary document")
-        print("3. Exit")
+        print("3. Add comments")
+        print("4. Exit")
         menutext = input("")
         if menutext == "1":
             menu_1(files)  # Execute function to create a document for each file
         elif menutext == "2":
             create_summary_documentation(files)  # Execute function to create a summary document
         elif menutext == "3":
+            menu_3(files) # Execute function to create comments
+        elif menutext == "4":
             print("Bye! :)")  # Inform user of exit
         else:
             print("Wrong number")  # Inform user of incorrect input

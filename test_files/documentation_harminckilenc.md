@@ -1,19 +1,19 @@
-The `harminckilenc.py` script is a Python program that uses the `turtle` graphics module to draw regular polygons based on user input. Here's a detailed breakdown of its functionality:
+The Python file named `harminckilenc.py` uses the `turtle` graphics module to interactively draw regular polygons based on user input. Below is a detailed description of its functionality:
 
-1. **Importing Modules:**
-   - The script imports the `turtle` module, which is used for drawing shapes and graphics.
+1. **Importing the Turtle Module**:
+   The script begins by importing the `turtle` module, which provides graphical capabilities that allow for drawing shapes using a virtual turtle.
 
-2. **Defining the `paint` Function:**
-   - `paint(number)`: This function takes a single argument, `number`, which specifies the number of sides of the polygon to be drawn.
-   - Inside the function, the turtle's screen is reset using `turtle.resetscreen()`.
-   - A new turtle object `t` is created.
-   - The angle `szog` of each turn the turtle makes is calculated based on the formula for interior angles of a regular polygon (`180 - (((number - 2) * 180)/number`).
-   - The turtle then iterates through a loop `number` times, each time turning left by `szog` degrees and moving forward by a fixed length (100 units).
+2. **Definition of the `paint` Function**:
+   - The function `paint` takes a single parameter, `number`, which specifies the number of sides of the polygon to be drawn.
+   - It starts by resetting the drawing screen using `turtle.resetscreen()`.
+   - A new Turtle object `t` is initialized.
+   - The variable `szog` (angle in Hungarian) is computed to determine the inner corner angle of the polygon using the formula `180 - (((number - 2) * 180) / number)`.
+   - The function uses a loop to direct the turtle `t` to draw the polygon. In each iteration, the turtle turns left by the `szog` angle and moves forward by 100 units.
 
-3. **Main Loop:**
-   - The script runs an infinite loop where it prompts the user to input the desired number of sides for the polygon with the message: "Milyen szabályos poligont szeretne?" (Which regular polygon would you like to draw?).
-   - The user's input is captured and converted into an integer (`n`).
-   - It checks whether the input `n` is between 3 and 9 (inclusive). If true, the `paint(n)` function is called to draw the corresponding polygon.
-   - If the input is outside the accepted range, the script prints "Ilyet nem tudok :c" (I cannot do that :c) and breaks out of the loop, effectively ending the program.
+3. **Main Loop**:
+   - The script continuously prompts the user for input, asking for the number of sides (`n`) of the desired polygon.
+   - The input is taken using `input()` and converted into an integer.
+   - A conditional statement checks if `n` is within the range of 3 to 9 inclusive. If `n` is within this range, the `paint(n)` function is called to draw the polygon.
+   - If the input is out of the specified range, a message "Ilyet nem tudok :c" ("I can't do that :c" in Hungarian) is printed, and the program exits the loop and ends.
 
-This straightforward program combines user interaction with graphical output, demonstrating basic usage of Python’s turtle module for educational and visual fun by drawing different regular polygons based on user-driven parameters.
+This program allows the user to draw regular polygons with sides ranging from 3 to 9. It leverages the visual capabilities of the `turtle` module making it a straightforward and interactive way to understand geometry and the Python programming interface of the turtle graphics.

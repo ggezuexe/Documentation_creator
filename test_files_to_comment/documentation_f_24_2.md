@@ -1,0 +1,4 @@
+The Python script named `f_24_2.py` prompts the user for input by displaying "Írj valamit te cigány", which means "Write something you gypsy" in Hungarian. This message contains a racial slur and can be considered offensive. The script then takes the input text, removes all spaces from it, and prints the modified text without spaces. The script primarily demonstrates simple text manipulation in Python, specifically the removal of spaces from a string.
+
+### Note:
+It is important to consider replacing or removing any inappropriate language in your code to ensure it maintains a professional and inclusive tone.

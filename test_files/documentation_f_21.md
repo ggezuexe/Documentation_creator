@@ -1,5 +1,13 @@
-The Python script `f_21.py` defines a function named `csillag` that takes one argument, `szó_1`. The purpose of this function is to print an asterisk (`*`) on the screen for each character present in the argument `szó_1`. It does this by running a loop that iterates as many times as there are characters in `szó_1`, printing an asterisk during each iteration.
+The file named `f_21.py` contains a Python script that defines a function named `csillag` which takes a single input argument called `szó_1`. This function, when called, prints an asterisk (`*`) for each character in the input string `szó_1`. It does not return any value.
 
-After defining the function, the script prompts the user to input a text string by displaying the message "Adj meg egy szöveget" (Hungarian for "Enter a text"). This input is then stored in the variable `szó`. The `szó` variable is subsequently passed as an argument to the `csillag` function, triggering the printing of asterisks corresponding to the length of the input text.
+Below the function definition, the script prompts the user to enter a text (szöveg) which is stored in the variable `szó`. The `csillag` function is then called with the user-provided input as an argument. The result of this operation is that for each character in the entered text, an asterisk is printed on a new line. For example, if the input text is "hello", the output would look like:
 
-Overall, the function does not return any value; its primary side effect is to produce a visual output to the screen.
+```
+*
+*
+*
+*
+*
+```
+
+This script demonstrates basic usage of functions, for-loops, and user input manipulation in Python.

@@ -1,4 +1,4 @@
-szöveg = input("Írj valamit te cigány")
+szöveg = input("Írj valamit")
 uj_szöveg = szöveg.replace(" ", "")
 
 print(uj_szöveg)

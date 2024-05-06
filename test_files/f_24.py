@@ -1,4 +1,4 @@
-szöveg = input("Írj valamit te cigány")
+szöveg = input("Írj valamit")
 szöveg_lista = szöveg.split()
 uj_szöveg = ""
 

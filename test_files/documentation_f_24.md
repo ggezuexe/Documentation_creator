@@ -1,11 +1,9 @@
-The file `f_24.py` contains a Python script that performs the following operations:
+The Python script `f_24.py` performs the following operations:
 
-1. **Input Collection**: The program prompts the user with the message "Írj valamit te cigány" and expects an input. The user types a string of text as a response.
-   
-2. **String Splitting**: The entered text is split into a list of words using the `split()` method. This function splits the string at spaces by default, which separates words and stores them as elements in a list named `szöveg_lista`.
+1. It prompts the user to input a string of text using the prompt "Írj valamit" which translates to "Write something" in English.
+2. The input string is then split into a list of words using the `split()` method. This method by default splits the string at spaces, so each word becomes a separate element in the list `szöveg_lista`.
+3. An empty string `uj_szöveg` is initialized to accumulate the words from the list.
+4. The script iterates over the list of words (`szöveg_lista`) using a for loop. During each iteration, the current word is concatenated to `uj_szöveg` without any spaces, effectively removing the spaces from the original input.
+5. Finally, the concatenated string (now devoid of spaces) is printed.
 
-3. **Concatenation Process**: An empty string `uj_szöveg` is initially declared. The script then iterates over each word in `szöveg_lista` and concatenates them back together without any spaces between the words, effectively removing the original spaces from the user's input.
-
-4. **Output**: Finally, the concatenated string `uj_szöveg` is printed to the console.
-
-**Note**: The input prompt phrase contains a term that might be considered offensive in certain contexts. It's advisable to use neutral and respectful language in user prompts to maintain the inclusiveness and professionalism of your code.
+In essence, the script asks for a textual input, removes the spaces between the words, and outputs the result.
